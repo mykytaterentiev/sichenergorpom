@@ -1,17 +1,17 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 
 export default function About() {
   const [visibleStats, setVisibleStats] = useState(false);
   const [animatedNumbers, setAnimatedNumbers] = useState({ experience: 0, projects: 0, team: 0 });
   const statsRef = useRef<HTMLDivElement>(null);
 
-  const stats = [
+  const stats = useMemo(() => [
     { number: 17, displayNumber: "17+", label: "Років досвіду", key: "experience" as const },
-    { number: 200, displayNumber: "200+", label: "Виконаних проектів", key: "projects" as const },
+    { number: 200, displayNumber: "200+", label: "Виконаних проєктів", key: "projects" as const },
     { number: 25, displayNumber: "25+", label: "Команда експертів", key: "team" as const }
-  ];
+  ], []);
 
   const capabilities = [
     {
